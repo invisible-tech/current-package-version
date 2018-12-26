@@ -1,0 +1,44 @@
+{
+  "name": "@invisible/current-package-version",
+  "license": "MIT",
+  "version": "1.0.0",
+  "description": "Outputs the version of the package you are in, based on package.json",
+  "engines": {
+    "node": ">=8.5.0",
+    "npm": ">=6.0.0"
+  },
+  "homepage": "https://github.com/invisible-tech/current-package-version",
+  "author": {
+    "email": "tng@invisible.email",
+    "name": "Invisible Technologies",
+    "url": "https://github.com/invisible-tech"
+  },
+  "bin": {
+    "current-package-version": "bin/current-package-version.js"
+  },
+  "main": "src/index.js",
+  "keywords": [],
+  "devDependencies": {
+    "@invisible/changelog-update": "^1.0.8",
+    "@invisible/eslint-config": "^1.1.3",
+    "eslint": "^5.11.0"
+  },
+  "repository": "git@github.com:invisible-tech/current-package-version.git",
+  "scripts": {
+    "coverage": "nyc report --reporter=lcov --reporter=html --reporter=text-summary --reporter=text",
+    "lint": "eslint --cache -f node_modules/eslint-formatter-pretty \"{bin,scripts,src,test}/**/*.js\"",
+    "lint:fix": "npm run lint -- --fix",
+    "posttest": "scripts/posttest.sh",
+    "pretest": "npm run lint",
+    "test": "npm run test-only",
+    "test-only": "exit 0"
+  },
+  "dependencies": {
+    "@invisible/publish": "^2.0.3",
+    "find-package-json": "^1.0.0"
+  },
+  "changelogUpdate": {
+    "slackbotName": "@invisible/current-package-version",
+    "iconEmoji": "rocket"
+  }
+}
